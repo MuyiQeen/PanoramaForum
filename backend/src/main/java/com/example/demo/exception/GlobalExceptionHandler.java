@@ -2,6 +2,7 @@ package com.example.demo.exception;
 
 import com.example.demo.constant.WebConstants;
 import com.example.demo.dto.response.Result;
+import com.example.demo.enums.ErrorEnum;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ExceptionHandler;
