@@ -6,7 +6,7 @@ spring:
 
   datasource:
     url: jdbc:mysql:/
-    password: 251124
+    password: your-passwd
     driver-class-name: com.mysql.cj.jdbc.Driver
     hikari:
       initialization-fail-timeout: 1
