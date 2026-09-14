@@ -1,0 +1,29 @@
+:root {
+    --primary: #1677FF;
+    --hover-color: #4096FF;
+    --active-color: #0958D9;
+
+    --global-bg-color: #F5F6FA;
+
+    --success: #3FB950;
+    --success-bg: #E7F6E9;
+    --warning: #FAAD14;
+    --warning-bg: #FEF5E2;
+    --error: #FF4D4F;
+    --error-bg: #FFE9E9;
+    --info: #58A6FF;
+    --info-bg: #E6F4FF;
+
+    --link-color: #58A6FF;
+    --link-hover-color: #1F6FEB;
+
+    --title-color: #1F2328;
+    --body-color: #393D41;
+    --placeholder-color: #86909C;
+    --disabled-color: #C9CDD4;
+    --border-color: #D9DDE3;
+    --divider-color: #E5E6EB;
+
+    --shadow-color: rgba(0, 0, 0, 0.08);
+    --btn-radius: 8px;
+}

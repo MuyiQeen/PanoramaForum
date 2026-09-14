@@ -5,3 +5,5 @@ import '@/common/assets/styles/variable.css'
 import '@/common/assets/styles/global.css'
 
 createApp(App).mount('#app')
+
+console.log(123)
