@@ -2,7 +2,7 @@ package com.example.demo.utils;
 
 import com.example.demo.constant.PasswordConstants;
 import com.example.demo.exception.AppException;
-import com.example.demo.exception.ErrorEnum;
+import com.example.demo.enums.ErrorEnum;
 import org.mindrot.jbcrypt.BCrypt;
 
 public final class BCryptUtils {
