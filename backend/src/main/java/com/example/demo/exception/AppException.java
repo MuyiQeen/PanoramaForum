@@ -1,5 +1,6 @@
 package com.example.demo.exception;
 
+import com.example.demo.enums.ErrorEnum;
 import lombok.Getter;
 
 @Getter
