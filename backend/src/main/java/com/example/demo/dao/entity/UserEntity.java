@@ -63,4 +63,7 @@ public class UserEntity {
     //粉丝
     @TableField("follower_count")
     private Integer followerCount = 0;
+
+    @TableField(value = "test")
+    private String test;
 }

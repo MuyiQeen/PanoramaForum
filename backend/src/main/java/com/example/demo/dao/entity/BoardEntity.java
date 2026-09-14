@@ -38,4 +38,7 @@ public class BoardEntity {
 
     @TableField(value = "updated_at", fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime updatedAt;
+
+    @TableField(value = "test")
+    private String test;
 }
