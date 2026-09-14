@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: demo
+  banner:
+    location: classpath:banner.txt
+
+  datasource:
+    url: jdbc:mysql:/
+    password: 251124
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      initialization-fail-timeout: 1
+
+Panorama:
+  version: 1.0.0

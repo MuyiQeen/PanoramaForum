@@ -1,0 +1,81 @@
+# ==================== 通用 ====================
+# 操作系统
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# 日志
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# 环境变量
+.env
+.env.local
+.env.*.local
+
+# ==================== 后端 (Spring Boot / Maven) ====================
+backend/target/
+backend/!.mvn/wrapper/maven-wrapper.jar
+backend/!**/src/main/**/target/
+backend/!**/src/test/**/target/
+
+# Maven
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# ==================== 前端 (Vue / Vite / Node) ====================
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+frontend/.vite/
+frontend/coverage/
+frontend/*.local
+frontend/.env.*.local
+
+# npm / yarn / pnpm
+frontend/.npm/
+frontend/.yarn/
+frontend/.pnp.*
+frontend/yarn.lock
+frontend/package-lock.json
+frontend/pnpm-lock.yaml
+
+# TypeScript
+frontend/*.tsbuildinfo
+
+# 编辑器
+frontend/.vscode/*
+!frontend/.vscode/extensions.json
+!frontend/.vscode/settings.json
+
+# ==================== 打包产物 ====================
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
