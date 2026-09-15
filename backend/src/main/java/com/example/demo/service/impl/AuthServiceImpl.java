@@ -9,6 +9,8 @@ import com.example.demo.service.AuthService;
 import com.example.demo.utils.IdUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
