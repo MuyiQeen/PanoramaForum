@@ -16,10 +16,11 @@ import static com.baomidou.mybatisplus.extension.toolkit.Db.saveBatch;
 
 @Service
 @RequiredArgsConstructor
-public class AuthServiceImpl implements AuthService {
+public class AuthServiceImpl extends ServiceImpl<IdPoolMapper,IdPoolEntity> implements AuthService{
 
     private final IdPoolMapper idPoolMapper;
 
+    @Transactional(rollbackFor = Exception.class)
     @Override
     public void generateId() throws Exception {
 
