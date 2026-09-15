@@ -1,6 +1,8 @@
 package com.example.demo.dao.entity;
 
 import com.baomidou.mybatisplus.annotation.*;
+import com.example.demo.enums.GenderEnum;
+import com.example.demo.enums.RoleEnum;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
@@ -29,7 +31,7 @@ public class UserEntity {
     private String avatarPath;
 
     @TableField("role")
-    private Integer role=12;
+    private Integer role= RoleEnum.USER.getCode();
 
     //软删除
     @TableLogic
@@ -40,21 +42,13 @@ public class UserEntity {
     @TableField("disable")
     private Boolean disabled = false;
 
-    //创建时间
-    @TableField(value = "create_at", fill = FieldFill.INSERT)
-    private LocalDateTime createAt;
-
-    //更新时间
-    @TableField(value = "updated_at", fill = FieldFill.INSERT_UPDATE)
-    private LocalDateTime updatedAt;
-
     //积分
     @TableField("points")
     private Long points = 0L;
 
     //性别
     @TableField("gender")
-    private Integer gender = 2;
+    private Integer gender = GenderEnum.UNKNOWN.getCode();
 
     //关注
     @TableField("following_count")
@@ -64,6 +58,12 @@ public class UserEntity {
     @TableField("follower_count")
     private Integer followerCount = 0;
 
-    @TableField(value = "test")
-    private String test;
+    //创建时间
+    @TableField(value = "created_at", fill = FieldFill.INSERT)
+    private LocalDateTime createdAt;
+
+    //更新时间
+    @TableField(value = "updated_at", fill = FieldFill.INSERT_UPDATE)
+    private LocalDateTime updatedAt;
+
 }

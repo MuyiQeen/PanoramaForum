@@ -11,5 +11,18 @@ spring:
     hikari:
       initialization-fail-timeout: 1
 
+
+#日志文件
+logging:
+  file:
+    name: logs/application.log
+  logback:
+    rollingpolicy:
+      max-file-size: 10MB  #单文件大小
+      max-history: 7  #最长保留时间
+      total-size-cap: 500MB  #总大小
+
+
+
 Panorama:
   version: 1.0.0
