@@ -2,28 +2,31 @@ package com.example.demo.dao.entity;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import lombok.Builder;
 import lombok.Data;
 
 import java.time.LocalDateTime;
 
 @Data
-@TableName("ip_pool")
-public class IPPoolEntity {
-    //
+@TableName("id_pool")
+@Builder
+public class IdPoolEntity {
+    // id
     @NotBlank
-    @TableField(value = "user_id")
+    @TableId(value = "user_id")
     private Integer userId;
 
-    //
+    // 是否使用
     @NotNull
     @TableField(value = "is_used")
-    private Boolean isUsed = false;
+    private Boolean used = false;
 
     //创建时间
-    @TableField(value = "created_at", fill = FieldFill.INSERT)
+    @TableField(value = "created_at")
     private LocalDateTime createdAt;
 }
 

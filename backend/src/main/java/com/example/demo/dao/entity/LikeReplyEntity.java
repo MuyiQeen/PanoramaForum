@@ -2,6 +2,7 @@ package com.example.demo.dao.entity;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -14,7 +15,7 @@ import java.time.LocalDateTime;
 public class LikeReplyEntity {
     //userid
     @NotNull
-    @TableField(value = "user_id")
+    @TableId(value = "user_id")
     private Integer userId;
 
     //回复id

@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 @Data
 @TableName("board")
 public class BoardEntity {
+
     @TableId(value = "board_id", type = IdType.AUTO)
     private Integer boardId;
 

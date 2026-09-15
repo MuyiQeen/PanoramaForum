@@ -7,7 +7,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum GenderEnum {
+public enum SexEnum {
     MAN(1, "男"),
     WOMAN(0, "女"),
     UNKNOWN(2, "未知");

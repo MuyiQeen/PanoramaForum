@@ -1,7 +1,7 @@
 package com.example.demo.dao.entity;
 
 import com.baomidou.mybatisplus.annotation.*;
-import com.example.demo.enums.GenderEnum;
+import com.example.demo.enums.SexEnum;
 import com.example.demo.enums.RoleEnum;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -48,7 +48,7 @@ public class UserEntity {
 
     //性别
     @TableField("gender")
-    private Integer gender = GenderEnum.UNKNOWN.getCode();
+    private Integer sex = SexEnum.UNKNOWN.getCode();
 
     //关注
     @TableField("following_count")

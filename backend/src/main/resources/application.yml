@@ -6,21 +6,19 @@ spring:
 
   datasource:
     url: jdbc:mysql://localhost:3306/pf?useSSL=false&useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: root
     password: 251124
     driver-class-name: com.mysql.cj.jdbc.Driver
     hikari:
       initialization-fail-timeout: 1
 
 
-#日志文件
+
 logging:
-  file:
-    name: logs/application.log
-  logback:
-    rollingpolicy:
-      max-file-size: 10MB  #单文件大小
-      max-history: 7  #最长保留时间
-      total-size-cap: 500MB  #总大小
+  level:
+    com.zaxxer.hikari: DEBUG          # 连接池详情
+    com.example.demo.dao.mapper: DEBUG # 你的 Mapper 执行的 SQL
+    org.springframework.jdbc: DEBUG    # JDBC 相关
 
 
 

@@ -7,4 +7,6 @@ public interface AuthService {
 
     public Result<Void> register(RegisterRequest request);
 
+    public void generateId() throws Exception;
+
 }
