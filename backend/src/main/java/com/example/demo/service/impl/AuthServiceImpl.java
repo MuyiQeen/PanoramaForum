@@ -11,6 +11,7 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public Result<Void> register(RegisterRequest request) {
+
         return null;
     }
 }
