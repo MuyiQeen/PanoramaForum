@@ -5,13 +5,32 @@ import com.example.demo.dto.response.Result;
 import com.example.demo.enums.ErrorEnum;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.resource.NoResourceFoundException;
 
+import java.util.Map;
+import java.util.stream.Collectors;
+
 @RestControllerAdvice
 @Slf4j
 public class GlobalExceptionHandler {
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public Result<?> handleMethodArgumentNotValid(MethodArgumentNotValidException e) {
+
+        Map<String, String> errors = e.getBindingResult().getFieldErrors().stream()
+                .collect(Collectors.toMap(
+                        FieldError::getField,
+                        fe -> fe.getDefaultMessage() == null ? "参数错误" : fe.getDefaultMessage(),
+                        (existing, replacement) -> existing
+                ));
+
+        log.warn("参数校验失败: {}", errors);
+        return Result.error(ErrorEnum.PARAM_INVALID.getErrorCode(), ErrorEnum.PARAM_INVALID.getMessage(),errors);
+    }
 
 
     /**
@@ -24,7 +43,7 @@ public class GlobalExceptionHandler {
      * @return 统一封装的 Result 对象
      */
     @ExceptionHandler(value = AppException.class)
-    public Result handleException(AppException e, HttpServletRequest request) {
+    public Result<Void> handleException(AppException e, HttpServletRequest request) {
 
         log.warn("应用异常: type={}, http={}, code={}, msg={}", e.getErrorType(), e.getHttpStatus(), e.getErrorCode(), e.getMessage());
 
@@ -41,7 +60,7 @@ public class GlobalExceptionHandler {
      * @return 统一封装的 Result 对象
      */
     @ExceptionHandler(NoResourceFoundException.class)
-    public Result handleNoResource(HttpServletRequest request) {
+    public Result<Void> handleNoResource(HttpServletRequest request) {
 
         String path = request.getRequestURI();
 
@@ -64,7 +83,7 @@ public class GlobalExceptionHandler {
      * @return 统一封装的 Result 对象
      */
     @ExceptionHandler(value = Exception.class)
-    public Result handleException(Exception e, HttpServletRequest request) {
+    public Result<Void> handleException(Exception e, HttpServletRequest request) {
 
         log.error("系统异常", e);
 
