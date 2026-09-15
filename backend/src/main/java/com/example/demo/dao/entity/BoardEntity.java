@@ -2,6 +2,7 @@ package com.example.demo.dao.entity;
 
 import com.baomidou.mybatisplus.annotation.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -16,22 +17,25 @@ public class BoardEntity {
     @TableField("board_name")
     private String boardName;
 
-    @NotBlank(message = "board's create_id is null")
+    @NotNull(message = "board's create_id is null")
     @TableField("creator_id")
     private Integer creatorId;
 
-    //详情页
+    //详情
     @TableField("description")
     private String description;
 
+    //总贴数
     @TableField("post_count")
-    private Integer postCount;
+    private Integer postCount = 0;
 
+    //浏览量
     @TableField("view_count")
-    private Long viewCount;
+    private Long viewCount = 0L;
 
+    //权重
     @TableField("sort_order")
-    private Integer sortOrder;
+    private Integer sortOrder = 0;
 
     @TableField(value = "created_at", fill = FieldFill.INSERT)
     private LocalDateTime createdAt;
@@ -39,6 +43,4 @@ public class BoardEntity {
     @TableField(value = "updated_at", fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime updatedAt;
 
-    @TableField(value = "test")
-    private String test;
 }
