@@ -20,7 +20,6 @@ class DemoApplicationTests {
 
         authService.generateId();
 
-
     }
 
 }

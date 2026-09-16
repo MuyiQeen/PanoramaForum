@@ -7,6 +7,6 @@ import org.apache.ibatis.annotations.Select;
 
 @Mapper
 public interface IdPoolMapper extends BaseMapper<IdPoolEntity> {
-    @Select("SELECT user_id FROM id_pool WHERE is_used = 0 ORDER BY user_id LIMIT 1")
+    @Select("SELECT user_id FROM id_pool WHERE is_used = 0   LIMIT 1 FOR UPDATE")
     Integer selectNextUnused();
 }

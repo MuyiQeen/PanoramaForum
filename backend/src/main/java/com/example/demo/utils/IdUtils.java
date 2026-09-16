@@ -11,7 +11,7 @@ public final class IdUtils {
     private IdUtils() {}
 
     private static final int START_ID = 100000;
-    private static final int BATCH_SIZE = 100;
+    private static final int BATCH_SIZE = 10000;
 
 
     public static List<IdPoolEntity> getIdPoolList(int maxId){

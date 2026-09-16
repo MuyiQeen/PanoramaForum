@@ -1,6 +1,7 @@
 package com.example.demo.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.demo.dao.entity.IdPoolEntity;
 import com.example.demo.dao.entity.UserEntity;
@@ -14,6 +15,7 @@ import com.example.demo.service.AuthService;
 import com.example.demo.utils.BCryptUtils;
 import com.example.demo.utils.IdUtils;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,6 +23,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class AuthServiceImpl extends ServiceImpl<IdPoolMapper, IdPoolEntity> implements AuthService {
 
     private final IdPoolMapper idPoolMapper;
@@ -40,11 +43,13 @@ public class AuthServiceImpl extends ServiceImpl<IdPoolMapper, IdPoolEntity> imp
 
             saveBatch(idPoolList, 100);
         } catch (Exception e) {
+            log.error("");
             throw new Exception("生成 ID 池失败", e);
         }
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public Result<Void> register(RegisterRequest request) {
 
         UserEntity user = userMapper.selectByEmail(request.getEmail());
@@ -59,13 +64,22 @@ public class AuthServiceImpl extends ServiceImpl<IdPoolMapper, IdPoolEntity> imp
                 .email(request.getEmail())
                 .passwd(BCryptUtils.hashPassword(request.getPassword()))
                 .build();
+
+        UpdateWrapper<IdPoolEntity> updateWrapper = new UpdateWrapper<>();
+        updateWrapper.eq("user_id",id)
+                .set("is_used",true);
+
+
         try {
-            userMapper.insertOrUpdate(user);
+            userMapper.insert(user);
+            idPoolMapper.update(null,updateWrapper);
+            log.info("用户插入成功{}", user.getUserId());
         } catch (Exception e) {
-            throw new AppException(ErrorEnum.SYSTEM_ERROR, "用户插入失败");
+            log.error("用户插入失败{}", e.getMessage(), e);
+            throw new AppException(ErrorEnum.SYSTEM_ERROR, "用户注册失败");
         }
 
-        return null;
+        return Result.ok("用户注册成功");
     }
 
 

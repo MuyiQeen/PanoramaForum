@@ -33,6 +33,14 @@ public class Result<T> {
                 .build();
     }
 
+    /** 成功，自定义返回信息，无数据 */
+    public static <T> Result<T> ok(String message) {
+        return Result.<T>builder()
+                .code(200)
+                .message(message)
+                .build();
+    }
+
     /** 成功，带数据 */
     public static <T> Result<T> ok(T data) {
         return Result.<T>builder()
