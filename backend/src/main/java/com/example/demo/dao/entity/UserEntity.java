@@ -5,12 +5,14 @@ import com.example.demo.enums.SexEnum;
 import com.example.demo.enums.RoleEnum;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import lombok.Builder;
 import lombok.Data;
 
 import java.time.LocalDateTime;
 
 @Data
 @TableName("user")
+@Builder
 public class UserEntity {
     @TableId(value = "user_id", type = IdType.AUTO)
     private Integer userId;

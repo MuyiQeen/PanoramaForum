@@ -1,4 +1,3 @@
-import { error } from "node:console";
 import { defineStore } from "pinia";
 import { computed, ref } from "vue";
 

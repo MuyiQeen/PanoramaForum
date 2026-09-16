@@ -43,7 +43,7 @@ public class GlobalExceptionHandler {
      * @return 统一封装的 Result 对象
      */
     @ExceptionHandler(value = AppException.class)
-    public Result<Void> handleException(AppException e, HttpServletRequest request) {
+    public Result<Void> handleAppException(AppException e, HttpServletRequest request) {
 
         log.warn("应用异常: type={}, http={}, code={}, msg={}", e.getErrorType(), e.getHttpStatus(), e.getErrorCode(), e.getMessage());
 
