@@ -1,9 +1,6 @@
 package com.example.demo.dao.entity;
 
-import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
@@ -17,7 +14,7 @@ import java.time.LocalDateTime;
 public class IdPoolEntity {
     // id
     @NotBlank
-    @TableId(value = "user_id")
+    @TableId(value = "user_id", type = IdType.INPUT)
     private Integer userId;
 
     // 是否使用
