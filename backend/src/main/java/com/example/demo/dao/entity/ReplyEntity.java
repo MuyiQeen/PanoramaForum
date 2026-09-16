@@ -15,27 +15,22 @@ public class ReplyEntity {
     private Integer replayId;
 
     //所属帖子
-    @NotNull
     @TableField(value = "post_id")
     private Integer postId;
     
     //父回复id
-    @NotNull
     @TableField(value = "parent_id")
     private Integer parentId;
 
     //被回复id
-    @NotNull
     @TableField(value = "reply_to_id")
     private Integer replyToId;
 
     //回复者id
-    @NotNull
     @TableField(value = "reporter_id")
     private Integer reporterId;
 
     //回复内容
-    @NotBlank
     @TableField(value = "reply_content")
     private String replyContent;
 

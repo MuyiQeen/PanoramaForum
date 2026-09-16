@@ -14,7 +14,6 @@ public class TagEntity {
     private Integer tagId;
 
     //name
-    @NotBlank
     @TableField(value = "tag_name")
     private String tagName;
 

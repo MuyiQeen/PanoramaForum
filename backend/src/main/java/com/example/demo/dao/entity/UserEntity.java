@@ -21,11 +21,9 @@ public class UserEntity {
     private String username;
 
     @Email
-    @NotBlank(message = "email is null")
     @TableField("email")
     private String email;
 
-    @NotBlank(message = "password is null")
     @TableField("passwd")
     private String passwd;
 

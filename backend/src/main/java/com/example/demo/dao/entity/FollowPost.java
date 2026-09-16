@@ -4,8 +4,6 @@ import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -14,12 +12,10 @@ import java.time.LocalDateTime;
 @TableName("follow_post")
 public class FollowPost {
     //
-    @NotNull
     @TableId(value = "user_id")
     private Integer userId;
 
     //
-    @NotNull
     @TableField(value = "post_id")
     private Integer postId;
 

@@ -14,11 +14,9 @@ public class BoardEntity {
     @TableId(value = "board_id", type = IdType.AUTO)
     private Integer boardId;
 
-    @NotBlank(message = "board's name is null")
     @TableField("board_name")
     private String boardName;
 
-    @NotNull(message = "board's create_id is null")
     @TableField("creator_id")
     private Integer creatorId;
 

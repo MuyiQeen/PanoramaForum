@@ -16,7 +16,6 @@ public class IdPoolEntity {
     private Integer seq;
 
     // id
-    @NotBlank
     @TableField(value = "user_id")
     private Integer userId;
 

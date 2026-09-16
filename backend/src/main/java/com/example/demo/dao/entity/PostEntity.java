@@ -16,22 +16,18 @@ public class PostEntity {
     private Integer postId;
 
     //板块id
-    @NotNull(message = "")
     @TableField(value = "board_id")
     private Integer boardId;
 
     //标题
-    @NotBlank
     @TableField(value = "post_title")
     private String postTitle;
 
     //内容
-    @NotBlank
     @TableField(value = "post_content")
     private String postContent;
 
     //发帖人id
-    @NotNull
     @TableField(value = "user_id")
     private Integer userId;
 

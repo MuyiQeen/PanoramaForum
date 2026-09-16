@@ -4,8 +4,6 @@ import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -14,17 +12,14 @@ import java.time.LocalDateTime;
 @TableName("like_reply")
 public class LikeReplyEntity {
     //userid
-    @NotNull
     @TableId(value = "user_id")
     private Integer userId;
 
     //回复id
-    @NotNull
     @TableField(value = "reply_id")
     private Integer replyId;
 
     //状态
-    @NotNull
     @TableField(value = "status")
     private Integer status = 0;
 
