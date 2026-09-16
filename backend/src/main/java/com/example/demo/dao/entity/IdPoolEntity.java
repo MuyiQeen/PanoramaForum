@@ -22,11 +22,11 @@ public class IdPoolEntity {
 
     // 是否使用
     @NotNull
-    @TableField(value = "is_used")
+    @TableField(value = "is_used", fill = FieldFill.INSERT)
     private Boolean used = false;
 
     //创建时间
-    @TableField(value = "created_at")
+    @TableField(value = "created_at", fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime createdAt;
 }
 
